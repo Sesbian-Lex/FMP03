@@ -1,0 +1,100 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
+#root {
+  max-width: 100vw;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.mainWrapper{
+  display: flex;
+  flex-direction: row;
+  background-color: bisque;
+  justify-content: center;
+  gap: 20px;
+  width: 75vw;
+  height: 85vh;
+}
+
+.leftSide{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 50%;
+  height: 100%;
+  background-color: aqua;
+}
+
+.rightSide{
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+  height: 100%;
+  background-color: aqua;
+  gap: 10px;
+}
+
+.positiveSide{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 50%;
+}
+
+.inputWrapper{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 50%;
+  background-color: rgb(2, 73, 73);
+  overflow: hidden;
+}
+
+.inputAndButtons{
+  display: flex;
+  flex-direction: row;
+  gap: 3px;
+  padding: 6px;
+}
+
+.inputBar{
+  font-size:22px;
+  display: flex;
+  flex: 1;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+button{
+  display: flex;
+
+}
+
+.diagramBox{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 50%;
+  background-color: rgb(2, 73, 73);
+  overflow: hidden;
+}
+
+.red{
+  color: red;
+}
+
+.inputLog{
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: start;
+}
+
+h3{
+  text-align: left;
+}
+
