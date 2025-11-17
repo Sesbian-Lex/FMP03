@@ -14,11 +14,13 @@
 .mainWrapper{
   display: flex;
   flex-direction: row;
-  background-color: bisque;
+  /* background-color: rgb(0, 0, 0); */
   justify-content: center;
   gap: 20px;
   width: 75vw;
   height: 85vh;
+  column-rule: 1px solid rgb(255, 255, 255);
+  
 }
 
 .leftSide{
@@ -27,16 +29,21 @@
   gap: 10px;
   width: 50%;
   height: 100%;
-  background-color: aqua;
+  /* background-color: aqua; */
 }
 
 .rightSide{
+  padding: 12px;
   display: flex;
   flex-direction: row;
   width: 50%;
   height: 100%;
-  background-color: aqua;
+  /* background-color: aqua; */
   gap: 10px;
+  /* border: 2px solid white; */
+  border-top: 2px solid white;
+  border-bottom: 2px solid white;;
+  border-radius: 15px;
 }
 
 .positiveSide{
@@ -51,8 +58,10 @@
   flex-direction: column;
   width: 100%;
   height: 50%;
-  background-color: rgb(2, 73, 73);
-  overflow: hidden;
+  /* background-color: rgb(2, 73, 73); */
+  border-top: 2px solid white;
+  border-bottom: 2px solid white;;
+  border-radius: 7.5px;
 }
 
 .inputAndButtons{
@@ -76,12 +85,15 @@ button{
 }
 
 .diagramBox{
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
   width: 100%;
   height: 50%;
-  background-color: rgb(2, 73, 73);
-  overflow: hidden;
+  /* background-color: rgb(2, 73, 73); */
+  overflow: auto;
+  border-top: 2px solid white;
+  border-bottom: 2px solid white;;
+  border-radius: 7.5px;
 }
 
 .red{
@@ -89,12 +101,21 @@ button{
 }
 
 .inputLog{
-  display: flex;
-  flex-direction: column-reverse;
-  justify-content: start;
+  /* flex-direction: column-reverse; */
+  justify-content: end;
+  flex: 1;
+  overflow: auto  ;
+  padding: 5px;
 }
 
 h3{
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   text-align: left;
+  /* margin: 5px; */
+  padding: 3px;
+  border-top: 1px solid rgba(247, 247, 247, 0.521);
+
 }
+
+
 

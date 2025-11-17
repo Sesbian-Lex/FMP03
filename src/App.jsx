@@ -30,12 +30,13 @@ function App() {
   const handleChange = (e) => {
     const newVal = e.target.value
     console.log(e.target.value)
-     if (/^[A-Za-z]*$/.test(newVal)) {
+     if (/^[A-Za-z0-9]*$/.test(newVal)) {
       setInputVal(newVal);
     } 
   }
 
   const iterate = async (e) => {
+   if (inputVal == "") return
     let transitions = {}
       setIsDisabled(true)
       setModifiedPositive([])
@@ -89,7 +90,7 @@ function App() {
           //changes current word to word with one more letter
           setModifiedPositive(prev => [...prev.slice(0, -1), tempWord])
          
-          isInstant ? '' : await new Promise(r => setTimeout(r, 150))
+          isInstant ? '' : await new Promise(r => setTimeout(r, 100))
         }
 
         //deletes the color red if the word ends with letters but not match
@@ -109,10 +110,7 @@ function App() {
       //removes extra word
       setModifiedPositive(prev => [...prev.slice(0, -1)])
 
-      
-
-
-
+      //negative side
         for(let j = 0; j < negative.length; j++){
           let tempState = "Q0" //changes states
           let tempWord = [] //saves the word that will be written per letter
@@ -154,7 +152,7 @@ function App() {
             //changes current word to word with one more letter
             setModifiedNegative(prev => [...prev.slice(0, -1), tempWord])
           
-            isInstant ? '' : await new Promise(r => setTimeout(r, 250))
+            isInstant ? '' : await new Promise(r => setTimeout(r, 100))
           }
 
           //deletes the color red if the word ends with letters but not match
@@ -171,19 +169,24 @@ function App() {
           setModifiedNegative(prev => [...prev, tempWord])
 
         }  
+
         //removes extra word
         setModifiedNegative(prev => [...prev.slice(0, -1)])
-        setHistory(prev => [...prev, inputVal])
-
+        //adds the last input to inputLog
+        setHistory(prev => [inputVal, ...prev])
+        //resets inputBar
+        setInputVal("")
+        //enables submit and inputBar again
         setIsDisabled(false)
 
   } 
 
   //when enter is pressed
-  const handleKeyDown = async (e) => {
-     if (e.key === "Enter"){
+  const handleKeyDown =(e) => {
+   
+    if (e.key === "Enter"){
       iterate()
-     }
+    }
   }
 
   return (
@@ -198,12 +201,13 @@ function App() {
               placeholder="Enter string..."
               disabled={isDisabled}/>
               <button onClick={iterate} disabled={isDisabled} className='submitBut'>Submit</button>
-              <button onClick={handleInstant}>Instant</button>
+              <button onClick={handleInstant} className='instantButton'>{isInstant ? "Iterate" : "Instant"}</button>
             </div>
-                <div className='inputLog'>{history.map((item, index)=>(
-                  <h3 key={"h"+index}>{item}</h3>
-                ))}</div>
-                
+
+            <div className='inputLog'>{history.map((item, index)=>(
+              <h3 key={"h"+index}>{item}</h3>
+            ))}</div>
+  
           </div>
           <div className='diagramBox'>
             <TransitionTable userInput={inputVal} currentState={currentState}/>
@@ -217,7 +221,7 @@ function App() {
             ))}
           </div>
           <div className='positiveSide'>
-            <h2>Negative</h2>
+            <h2>NEGATIVE</h2>
             {modifiedNegative.map((item, index)=>(
               <h3 key={index}>{item}</h3>
             ))}
